@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:654654313440:task-definition/node-app:3",
+    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:654654313440:task-definition/node-app:5",
     "containerDefinitions": [
         {
             "name": "node-app",
@@ -21,8 +21,9 @@
         }
     ],
     "family": "node-app",
+    "executionRoleArn": "arn:aws:iam::654654313440:role/ecs_execution_role",
     "networkMode": "awsvpc",
-    "revision": 3,
+    "revision": 5,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -43,7 +44,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2024-05-01T14:24:37.473Z",
+    "registeredAt": "2024-05-01T16:09:48.815Z",
     "registeredBy": "arn:aws:iam::654654313440:user/val",
     "tags": []
 }
