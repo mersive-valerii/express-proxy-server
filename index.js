@@ -24,7 +24,7 @@ const agent = new https.Agent({
 
 // Define a route that uses the controller
 app.get('/', (req, res) => {
-    res.status(200).send({ status: 200, message: "Ping" });
+    res.status(200).send({ status: 200, message: "Ping New!" });
 });
 
 app.get('/compliment', (req, res) => {
