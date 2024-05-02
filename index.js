@@ -24,26 +24,13 @@ const agent = new https.Agent({
 
 // Define a route that uses the controller
 app.get('/', (req, res) => {
-    res.status(200).send({ status: 200, message: "Ping New Lets se if we will be able to re-deply it boy!" });
+    res.status(200).send({ status: 200, message: "Ping" });
 });
 
 app.get('/compliment', (req, res) => {
     const compliments = [
         "You're an awesome friend.",
-        "You're a gift to those around you.",
-        "You're a smart cookie.",
-        "You are awesome!",
-        "I like your style.",
-        "You have the best laugh.",
-        "I appreciate you.",
-        "You are the most perfect you there is.",
-        "You are enough.",
-        "You're strong.",
-        "Your perspective is refreshing.",
-        "You're an amazing friend.",
-        "I'm grateful to know you.",
-        "You light up the room.",
-        "You deserve a hug right now."
+        "This will be modified",
     ];
 
     const randomIndex = Math.floor(Math.random() * compliments.length);

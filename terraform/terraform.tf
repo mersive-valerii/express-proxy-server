@@ -6,42 +6,18 @@ resource "aws_ecs_cluster" "my_cluster" {
   name = "node-cluster"
 }
 
-resource "aws_iam_role" "ecs_execution_role" {
-  name = "ecs_execution_role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Principal = {
-          Service = "ecs-tasks.amazonaws.com"
-        }
-        Effect = "Allow"
-        Sid    = ""
-      },
-    ]
-  })
-}
-
-resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy" {
-  role       = aws_iam_role.ecs_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
-}
-
-
 resource "aws_ecs_task_definition" "app" {
   family                   = "node-app"
   network_mode             = "awsvpc"
+  execution_role_arn       = "arn:aws:iam::654654313440:role/ecsTaskExecutionRole"
   requires_compatibilities = ["FARGATE"]
-  execution_role_arn       = aws_iam_role.ecs_execution_role.arn
   cpu                      = "256"
   memory                   = "512"
 
   container_definitions = jsonencode([
     {
-      name      = "node-app"
-      image     = "dohiii/nodetest"  # This should be dynamically replaced with the actual ECR image URI in deployment scripts if not static
+      name      = "node-test"
+      image     = "654654313440.dkr.ecr.eu-central-1.amazonaws.com/node-test"  # SET IMAGE
       cpu       = 256
       memory    = 512
       essential = true
@@ -55,7 +31,6 @@ resource "aws_ecs_task_definition" "app" {
     }
   ])
 }
-
 
 resource "aws_security_group" "app_sg" {
   name        = "app-sg"
