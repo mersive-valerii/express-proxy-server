@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.get('/compliment', (req, res) => {
     const compliments = [
         "You're an awesome friend.",
-        "This will be modified",
+        "This will be modified - HEHE lets see if it is deployed!",
     ];
 
     const randomIndex = Math.floor(Math.random() * compliments.length);
