@@ -16,6 +16,7 @@ resource "aws_ecs_task_definition" "app" {
 
   container_definitions = jsonencode([
     {
+      name      = "node-test"
       image     = "654654313440.dkr.ecr.eu-central-1.amazonaws.com/node-test"  # SET IMAGE
       cpu       = 256
       memory    = 512
@@ -93,7 +94,7 @@ resource "aws_ecs_service" "app_service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.app_tg.arn
-    container_name   = "node-app"
+    container_name   = "node-test"
     container_port   = 80
   }
 
