@@ -9,7 +9,7 @@ resource "aws_ecs_cluster" "my_cluster" {
 resource "aws_ecs_task_definition" "app" {
   family                   = "node-app"
   network_mode             = "awsvpc"
-  execution_role_arn       = "arn:aws:iam::992382627256:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::992382627256:role/ecsTaskExecutionRole" #EDIT IDs
   requires_compatibilities = ["FARGATE"]
   cpu                      = "256"
   memory                   = "512"
