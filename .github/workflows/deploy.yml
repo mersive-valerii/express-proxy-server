@@ -1,8 +1,10 @@
 name: Deploy to Amazon ECS
 
 on:
-  pull_request:
-  push:
+  workflow_run:
+    workflows: ["Terraform Apply"]  # This should match the name of the workflow
+    types:
+      - completed
     branches:
       - main
 

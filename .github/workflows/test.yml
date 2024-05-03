@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - test  # Trigger on pushes to the test branch
+      - main
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
