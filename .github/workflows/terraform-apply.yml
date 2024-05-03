@@ -6,10 +6,10 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "val-learn-org"
+  TF_CLOUD_ORGANIZATION: "val-learn-org"  # SET ORG FROM TF
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "express-proxy-server"
-  CONFIG_DIRECTORY: "./terraform"
+  TF_WORKSPACE: "express-proxy-server"  # SET WORKSPACE FROM TF
+  CONFIG_DIRECTORY: "./terraform" # SET PATH TO folder with TF files
 
 jobs:
   terraform:

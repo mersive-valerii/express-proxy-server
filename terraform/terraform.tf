@@ -57,7 +57,7 @@ resource "aws_lb" "app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.app_sg.id]
-  subnets            = ["subnet-0a72b50aa3d0128f2", "subnet-02011297bd7572c96","subnet-0d9e43161039d1a1f" ]  # Replace with your subnet IDs
+  subnets            = ["subnet-0a72b50aa3d0128f2", "subnet-02011297bd7572c96","subnet-0d9e43161039d1a1f" ]  # Replace with your subnet IDs !
 }
 
 resource "aws_lb_listener" "front_end" {
