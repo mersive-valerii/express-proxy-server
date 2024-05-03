@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name      = "node-test"
-      image     = "654654313440.dkr.ecr.eu-central-1.amazonaws.com/node-test"  # SET IMAGE
+      image     = "992382627256.dkr.ecr.eu-central-1.amazonaws.com/node-test"  # SET IMAGE
       cpu       = 256
       memory    = 512
       essential = true
@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "app" {
 resource "aws_security_group" "app_sg" {
   name        = "app-sg"
   description = "Allow HTTP traffic"
-  vpc_id      = "vpc-098c62601da102b5e"  # Replace with your VPC ID
+  vpc_id      = "vpc-0e0ca98df725e313c"  # Replace with your VPC ID
 
   ingress {
     from_port   = 80
@@ -57,7 +57,7 @@ resource "aws_lb" "app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.app_sg.id]
-  subnets            = ["subnet-089bc376bebd30844", "subnet-0cc7d22b420ddcc10","subnet-08391f76cb4a8de91" ]  # Replace with your subnet IDs
+  subnets            = ["subnet-0a72b50aa3d0128f2", "subnet-02011297bd7572c96","subnet-0d9e43161039d1a1f" ]  # Replace with your subnet IDs
 }
 
 resource "aws_lb_listener" "front_end" {
@@ -75,7 +75,7 @@ resource "aws_lb_target_group" "app_tg" {
   name     = "app-tg"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "vpc-098c62601da102b5e"  # Replace with your VPC ID
+  vpc_id   = "vpc-0e0ca98df725e313c"  # Replace with your VPC ID
   target_type = "ip"  # This line specifies the target type required for Fargate tasks
 }
 
@@ -87,7 +87,7 @@ resource "aws_ecs_service" "app_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets = ["subnet-089bc376bebd30844", "subnet-0cc7d22b420ddcc10","subnet-08391f76cb4a8de91" ]  # Replace with your subnet IDs
+    subnets = ["subnet-0a72b50aa3d0128f2", "subnet-02011297bd7572c96","subnet-0d9e43161039d1a1f" ]  # Replace with your subnet IDs
     security_groups = [aws_security_group.app_sg.id]
     assign_public_ip = true
   }
