@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:654654313440:task-definition/node-app:20",
+    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:992382627256:task-definition/node-app:1",
     "containerDefinitions": [
         {
             "name": "node-test",
-            "image": "654654313440.dkr.ecr.eu-central-1.amazonaws.com/node-test",
+            "image": "992382627256.dkr.ecr.eu-central-1.amazonaws.com/node-test",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -21,9 +21,9 @@
         }
     ],
     "family": "node-app",
-    "executionRoleArn": "arn:aws:iam::654654313440:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::992382627256:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 20,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -50,7 +50,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2024-05-02T14:13:56.506Z",
-    "registeredBy": "arn:aws:iam::654654313440:user/val",
+    "registeredAt": "2024-05-03T15:11:00.609Z",
+    "registeredBy": "arn:aws:iam::992382627256:user/val-admin",
     "tags": []
 }
